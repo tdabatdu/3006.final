@@ -9,22 +9,65 @@ import CommodityIndex as ci
 
 
 
-#setting up logging
 
 
 
+#creating commodities
 def createCommodities(commodity, logger):
     
-
+    #extracting commodities from source
     commodityData = de.extractCommoditiesData(commodity, logger)
-
-
     commodities = ci.Commodities(logger)
 
+    #instantiating commodities
     for row in commodityData.itertuples():
         #print(row)
         #print(row.period, row.year, row.value)
-        commodities.addNewCommodity(row.series_id, 'lumber', row.year, row.period, row.value, logger)
+        commodities.addNewCommodity(row.series_id, commodity, row.year, row.period, row.value, logger)
+        
+    return commodities
+
+
+#evaluate and display plot
+def displayPlot(commodities, plotType, logger):
     
-    for commodity in commodities._getCommodities(logger):
-        print(commodity.indexValue)
+    
+    if plotType == 'flat':
+        
+        
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def showCommodities(commodity, plot, output, logger):
+    commodities = createCommodities(commodity, logger)
+    
+    
+    
+    
+    
+    
+    
+    

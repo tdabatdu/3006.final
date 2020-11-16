@@ -8,10 +8,6 @@ import numpy as np
 import CommodityIndex as ci
 import logging
 
-logging.basicConfig(filename='CommodityIndex.log', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.ERROR)
-logger = logging.getLogger()
-streamLog = logging.StreamHandler()
-logger.addHandler(streamLog)
 
 
 
@@ -50,17 +46,7 @@ def extractCommoditiesData(commodityType, logger):
         raise ConnectionError
     
     return data
-    
 
-
-#data = pd.read_csv('https://download.bls.gov/pub/time.series/wp/wp.data.1.AllCommodities', sep='\t')
-
-#data.columns = data.columns.str.strip()
-
-
-#for row in data.iterrows():
-  #  print(data.value.to_string())
-    
     
     
 

@@ -10,7 +10,7 @@ import logging
 #streamLog = logging.StreamHandler()
 #logger.addHandler(streamLog)
 
-
+#commodity
 class CommodityIndex():
     
     def __init__(self, series, commodity, year, month, indexValue, logger):
