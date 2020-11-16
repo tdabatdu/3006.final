@@ -6,6 +6,8 @@ Tyler Dabat COMP 3006 Final
 import logging
 import DataExtractor as de
 import CommodityIndex as ci
+import PlotHelper as ph
+import Plotter as ptr
 
 
 
@@ -33,7 +35,11 @@ def displayPlot(commodities, plotType, logger):
     
     
     if plotType == 'flat':
+        data = ph.createFlatData(commodities, logger)
+        ptr.plotFlatData(data. logger)
         
+    elif plotType == 'nomchge':
+        data = ph.createFlatData(commodities, logger)
         
     
     
