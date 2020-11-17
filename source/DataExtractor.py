@@ -20,7 +20,7 @@ commodityDict = {
     'minerals': 'https://download.bls.gov/pub/time.series/wp/wp.data.14.Minerals',
     'transportation': 'https://download.bls.gov/pub/time.series/wp/wp.data.15.Transportation',
     'farmProducts': 'https://download.bls.gov/pub/time.series/wp/wp.data.2.FarmProducts',
-    'prrocessedFoods': 'https://download.bls.gov/pub/time.series/wp/wp.data.3.ProcessedFoods',
+    'processedFoods': 'https://download.bls.gov/pub/time.series/wp/wp.data.3.ProcessedFoods',
     'textile': 'https://download.bls.gov/pub/time.series/wp/wp.data.4.Textile',
     'leather': 'https://download.bls.gov/pub/time.series/wp/wp.data.5.Leather',
     'fuels': 'https://download.bls.gov/pub/time.series/wp/wp.data.6.Fuels',

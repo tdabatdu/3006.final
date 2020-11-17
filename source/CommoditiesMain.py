@@ -19,7 +19,7 @@ def main(logger):
     logger.info('Main executed')
     
     parser = ap.ArgumentParser(description = 'Analyze Commodity Price Index')
-    parser.add_argument('-c', '--commodity', dest = 'commodity', action = 'store', metavar = '<commodity>', choices = ['all', 'pulp', 'metals', 'minerals', 'transportation', 'farmProducts', 'prrocessedFoods', 'textile', 'leather', 'fuels', 'chemicals', 'rubber', 'lumber'])
+    parser.add_argument('-c', '--commodity', dest = 'commodity', action = 'store', metavar = '<commodity>', choices = ['all', 'pulp', 'metals', 'minerals', 'transportation', 'farmProducts', 'processedFoods', 'textile', 'leather', 'fuels', 'chemicals', 'rubber', 'lumber'])
     parser.add_argument('-p', '--plot', dest = 'plot', action = 'store', metavar = '<plotchoice>', choices = ['flat', 'nomchge', 'perchge' ], help = 'flat: average index year over year, nomchge: nominal change in the current year vs the previous, perchge: percentage change year over year')
     parser.add_argument('-o', '--output', dest = 'out', action = 'store', choices = ['print', 'sys'], help = 'To either print or pipe through sys')
     args = parser.parse_args()
