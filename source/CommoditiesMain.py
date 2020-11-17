@@ -34,9 +34,10 @@ def main(logger):
 
 
 
-#obtaining commodities
+#executing flow
 def execute(commodity, plot, output, logger):
-    #commodities = cm.createCommodities(commodity, logger)
+    
+    cm.processCommodities(commodity, plot, output, logger)
     
     
     
