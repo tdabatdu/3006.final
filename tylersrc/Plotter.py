@@ -14,10 +14,23 @@ def plotFlatData(x,y, logger):
     plt.show()
     return None
 
-def plotNominalData(data, logger):
+def plotNominalData(x,y, logger):
+    
+    plt.plot(x,y)
+    plt.xlabel('Year')
+    plt.ylabel('Difference in Index Value From Previous Year')
+    plt.title('Difference in Index Value Over Time')
+    plt.show()
+    
     
     return None
 
-def plotPercentageData(data, logger):
+def plotPercentageData(x,y, logger):
+    
+    plt.plot(x,y)
+    plt.xlabel('Year')
+    plt.ylabel('Percentage Change in Index Value From Previous Year')
+    plt.title('Percentage Change in Index Value Over Time')
+    plt.show()
     
     return None

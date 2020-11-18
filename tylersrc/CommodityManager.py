@@ -22,13 +22,13 @@ def createCommodities(commodity, logger):
     #extracting commodities from source
     commodityData = de.extractCommoditiesData(commodity, logger)
     commodities = ci.Commodities(logger)
-
+    
+    logger.debug('Creating Commodities')
     #instantiating commodities
     for row in commodityData.itertuples():
-        #print(row)
-        #print(row.period, row.year, row.value)
         commodities.addNewCommodity(row.series_id, commodity, row.year, row.period, row.value, logger)
         
+    logger.debug('Commodities created')
     return commodities
 
 
@@ -41,20 +41,24 @@ def displayPlot(commodities, plotType, logger):
         
         x,y = ph.createFlatData(commodities, logger)
         ptr.plotFlatData(x,y, logger)
+        logger.debug('flat plotter invoked')
         
         
         
     elif plotType == 'nomchge':
-        data = ph.createFlatData(commodities, logger)
-        ptr.plotNominalData(data, logger)
+        logger.debug('nomchge chosen')
         
-        logger.debug('Nominal Change chosen')
+        x,y = ph.createNomialData(commodities, logger)
+        ptr.plotNominalData(x,y, logger)
+        logger.debug('Nominal plotter invoked')
         
     elif plotType == 'perchge':
-        data = ph.createPercentageData(commodities, logger)
-        ptr.plotPercentageData(data, logger)
+        logger.debug('perchge')
         
-        logger.debug('Percentage Change chosen')
+        x,y = ph.createPercentageData(commodities, logger)
+        ptr.plotPercentageData(x,y, logger)
+        
+        logger.debug('Percentage plotter invoked')
         
     
     elif plotType == None:
@@ -62,7 +66,7 @@ def displayPlot(commodities, plotType, logger):
         logger.debug("Plot input Null")
     
     else:
-        logger.error('plot display type invalid')
+        logger.error('plot display type invalid, investigation needed')
         
     
     return x,y
@@ -77,8 +81,12 @@ def printPlot(output, outputType, logger):
         
         pnr.printOutput(output, outputType, logger)
         
+        logger.debug('printing ouput invoked')
+        
     elif outputType == 'sys':
         logger.debug('sys stdout chosen')
+        
+        pnr.printOutput(output, outputType, logger)
         
     elif outputType == None:
         logger.debug('No outputType chosen')
@@ -90,38 +98,19 @@ def printPlot(output, outputType, logger):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def processCommodities(commodity, plot, outputType, logger):
+    #Creating commodities
     commodities = createCommodities(commodity, logger)
+    logger.info(commodity + ' Obtained')
+    
+    #displaying Plots
     x,y = displayPlot(commodities, plot, logger)
+    logger.debug(plot + ' attempted')
     
     #Numpy used here!!-------------------------------------------------------------
     output = [np.column_stack((x,y))]
-
+    #output handled here
     pnr.printOutput(output, outputType, logger)
         
-    
-    
-    
-    
-    
-    
     
     
