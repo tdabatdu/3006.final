@@ -26,6 +26,7 @@ def main(logger):
     
     
     execute(args.commodity, args.plot, args.out, logger)
+    logger.debug('Execution Context: ' + str(args.commodity) + str(args.plot) + str(args.out))
     
 
 
@@ -39,14 +40,11 @@ def execute(commodity, plot, output, logger):
     
     cm.processCommodities(commodity, plot, output, logger)
     
-    
-    
-    
-    
-    return 'Place holder'
+    return None
     
     
     
     
 if __name__ == "__main__":
+    logger.info('Main Start')
     main(logger)

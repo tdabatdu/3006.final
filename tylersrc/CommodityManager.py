@@ -13,9 +13,6 @@ import numpy as np
 
 
 
-
-
-
 #creating commodities
 def createCommodities(commodity, logger):
     
