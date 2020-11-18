@@ -16,4 +16,11 @@ def printOutput(output, outputType, logger):
     elif outputType == 'sys':
         for item in output:
             stdout.write(str(item))
+            
+    elif outputType == None:
+        logger.debug('No outputType chosen')
+        logger.info('No output chosen')
+        
+    else:
+        logger.error('Problem with outputType processing')
         

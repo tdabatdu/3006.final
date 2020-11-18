@@ -32,7 +32,7 @@ def createCommodities(commodity, logger):
 #evaluate and display plot
 def displayPlot(commodities, plotType, logger):
     
-    
+    #flat plot type execution
     if plotType == 'flat':
         logger.debug('flat chosen')
         
@@ -41,7 +41,7 @@ def displayPlot(commodities, plotType, logger):
         logger.debug('flat plotter invoked')
         
         
-        
+    #nominal plot type execution
     elif plotType == 'nomchge':
         logger.debug('nomchge chosen')
         
@@ -49,6 +49,7 @@ def displayPlot(commodities, plotType, logger):
         ptr.plotNominalData(x,y, logger)
         logger.debug('Nominal plotter invoked')
         
+    #nominal plot type execution
     elif plotType == 'perchge':
         logger.debug('perchge')
         
@@ -57,11 +58,12 @@ def displayPlot(commodities, plotType, logger):
         
         logger.debug('Percentage plotter invoked')
         
-    
+    #no plot type
     elif plotType == None:
         logger.info("No plot chosen")
         logger.debug("Plot input Null")
     
+    #error in plot type
     else:
         logger.error('plot display type invalid, investigation needed')
         
@@ -69,8 +71,8 @@ def displayPlot(commodities, plotType, logger):
     return x,y
         
     
-    
-
+    ''' Probably need to delete this
+#printing the plot
 def printPlot(output, outputType, logger):
     
     if outputType == 'print':
@@ -93,8 +95,8 @@ def printPlot(output, outputType, logger):
         logger.error('Problem with outputType processing')
 
 
-
-
+'''
+#Processing all flows from main  (Also, numpy is used here!!!!!!!!!!!!!!!!!!!!!!!!!!!------------------ yay!
 def processCommodities(commodity, plot, outputType, logger):
     #Creating commodities
     commodities = createCommodities(commodity, logger)
