@@ -5,6 +5,7 @@ Tyler Dabat COMP 3006 Final
 
 import pandas as pd
 import numpy as np
+#Do I need this import anymore
 import CommodityIndex as ci
 import logging
 
