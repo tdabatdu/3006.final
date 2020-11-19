@@ -96,7 +96,7 @@ def printPlot(output, outputType, logger):
 
 
 '''
-#Processing all flows from main  (Also, numpy is used here!!!!!!!!!!!!!!!!!!!!!!!!!!!------------------ yay!
+#Processing all flows from main  (Also, numpy is used here
 def processCommodities(commodity, plot, outputType, logger):
     #Creating commodities
     commodities = createCommodities(commodity, logger)
