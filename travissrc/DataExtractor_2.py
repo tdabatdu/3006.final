@@ -14,7 +14,7 @@ import logging
 
 
 #predefined services
-serviceDict = {
+serviceType = {
     'all': 'https://download.bls.gov/pub/time.series/pc/pc.data.0.Current',
     'pulp': 'https://download.bls.gov/pub/time.series/pc/pc.data.11.Paper',
     'metals': 'https://download.bls.gov/pub/time.series/pc/pc.data.2.Mining',
