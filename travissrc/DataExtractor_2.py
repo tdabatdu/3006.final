@@ -14,7 +14,7 @@ import logging
 
 
 #predefined services
-serviceType = {
+serviceDict = {
     'all': 'https://download.bls.gov/pub/time.series/pc/pc.data.0.Current',
     'pulp': 'https://download.bls.gov/pub/time.series/pc/pc.data.11.Paper',
     'metals': 'https://download.bls.gov/pub/time.series/pc/pc.data.2.Mining',
@@ -27,13 +27,12 @@ serviceType = {
     'chemicals': 'https://download.bls.gov/pub/time.series/pc/pc.data.14.Chemicals',
     'rubber': 'https://download.bls.gov/pub/time.series/pc/pc.data.15.PlasticsRubberProducts',
     'lumber': 'https://download.bls.gov/pub/time.series/pc/pc.data.10.Wood',
-        #'farmProducts': 'https://download.bls.gov/pub/time.series/wp/wp.data.2.FarmProducts', No services analog in database
 
     }
 
+#'farmProducts': 'https://download.bls.gov/pub/time.series/wp/wp.data.2.FarmProducts', No services analog in database
 
-
-def extractServicesData(serviceDict, logger):
+def extractServicesData(serviceType, logger):
     try:
         data = pd.read_csv(serviceDict[serviceType], sep='\t')
         data.columns = ['series_id', 'year', 'period', 'value', 'foot']
