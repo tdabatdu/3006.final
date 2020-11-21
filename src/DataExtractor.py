@@ -1,6 +1,7 @@
 '''
-Tyler Dabat COMP 3006 Final
-
+Technical Lead: Tyler Dabat
+Contributor: Travis Hammond
+COMP 3006 Final
 '''
 
 import pandas as pd

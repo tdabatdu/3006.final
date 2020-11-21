@@ -1,6 +1,7 @@
 '''
-Tyler Dabat COMP 3006 Final
-
+Technical Lead: Tyler Dabat
+Contributor: Travis Hammond
+COMP 3006 Final
 '''
 import unittest
 import CommodityIndex
@@ -40,7 +41,7 @@ class Test(unittest.TestCase):
         commodities.addNewCommodity(1, 'Test3', '1920', 'M04', '14.231563', logger)
         
         count = 0
-        for commodity in commodities._getCommodities(logger):
+        for commodity in commodities._getCollection(logger):
             count +=1
             
         self.assertEqual(3, count)
@@ -53,7 +54,7 @@ class Test(unittest.TestCase):
         commodities.addNewCommodity(1, 'Test2', '1921', 'M04', '14.231563', logger)
         commodities.addNewCommodity(1, 'Test3', '1922', 'M04', '14.231563', logger)
         
-        for commodity in commodities._getCommodities(logger):
+        for commodity in commodities._getCollection(logger):
             if commodity.commodity == 'Test':
                 self.assertEqual(1920, commodity.year)
                 
