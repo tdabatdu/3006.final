@@ -26,7 +26,10 @@ def main(logger):
     parser.add_argument('-g', '--grouping', dest = 'grouping', action = 'store_true', help = 'The presence of this will add services to the plot')
     args = parser.parse_args()
     
-
+    if args.commodity == None:
+        print('Commodity is require, please try again.')
+        
+        raise SystemError
     
     
     execute(args.commodity, args.plot, args.out, args.grouping, logger)

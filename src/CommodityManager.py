@@ -64,6 +64,7 @@ def displayPlot(commodities, services, plotType, logger):
         if services != None:
             x2,y2 = ph.createFlatData(services, logger)
         
+        #plotting
         ptr.plotFlatData(x,y,x2,y2, logger)
         logger.debug('flat plotter invoked')
         
@@ -74,13 +75,13 @@ def displayPlot(commodities, services, plotType, logger):
         
         x,y = ph.createNomialData(commodities, logger)
         
+        #handling nulls
         x2 = None
         y2 = None
-
-        
         if services != None:
             x2,y2 = ph.createNomialData(services, logger)
-            
+          
+        #plotting  
         ptr.plotNominalData(x,y,x2,y2, logger)
         logger.debug('Nominal plotter invoked')
         
@@ -90,20 +91,23 @@ def displayPlot(commodities, services, plotType, logger):
         
         x,y = ph.createPercentageData(commodities, logger)
         
+        #handlingNulls
         x2 = None
         y2 = None
-        
         if services != None:
             x2,y2 = ph.createPercentageData(services, logger)
         
+        #plotting
         ptr.plotPercentageData(x,y,x2,y2, logger)
-        
         logger.debug('Percentage plotter invoked')
         
     #no plot type
     elif plotType == None:
+        x,y = ph.createPercentageData(commodities, logger)
         logger.info("No plot chosen")
         logger.debug("Plot input Null")
+        
+        
     
     #error in plot type
     else:
@@ -126,15 +130,12 @@ def processCommodities(commodity, plot, outputType, grouping,  logger):
         services = createServices(commodity, logger)
         logger.info('Service: ' + commodity + 'Obtained')
     
-        
-    
-    
     
     #displaying Plots
     x,y = displayPlot(commodities, services, plot, logger)
-    logger.debug(plot + ' attempted')
+    logger.debug(str(plot) + ' attempted')
     
-    #Numpy used here!!-------------------------------------------------------------
+    #Numpy used here!!-------------------------------------------------------------<<Numpy
     output = [np.column_stack((x,y))]
     #output handled here
     pnr.printOutput(output, outputType, logger)

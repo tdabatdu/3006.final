@@ -24,7 +24,7 @@ class CommodityIndex():
         
         logger.debug('Commodity Instantiated: ' + str(self))
         
-        
+        #Not used
     def __srt__(self):
         return(str(self.commodity + ', ' +  str(self.year) + ', ' +  str(self.month) + ', ' +  str(self.indexValue)))
     
@@ -50,15 +50,4 @@ class Commodities():
         
         logger.debug('commodity added')
         
-        
-    
-        
-        
-        
-        
-    
-        
-        
-        
-        
-    
+

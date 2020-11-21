@@ -31,7 +31,7 @@ def createFlatData(dataSet, logger):
 
     
 
-
+#prepping nominal data for plotting
 def createNomialData(dataSet, logger):
     tempDict = defaultdict(lambda: [])
     
@@ -62,7 +62,7 @@ def createNomialData(dataSet, logger):
     
     return x,y
 
-
+#prepping percentage data for plot
 def createPercentageData(dataSet, logger):
     tempDict = defaultdict(lambda: [])
     

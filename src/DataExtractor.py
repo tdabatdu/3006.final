@@ -48,7 +48,7 @@ serviceDict = {
     }
 
 
-
+#extracing commodities
 def extractCommoditiesData(commodityType, logger):
     try:
         data = pd.read_csv(commodityDict[commodityType], sep='\t')
@@ -64,6 +64,7 @@ def extractCommoditiesData(commodityType, logger):
     
     return data
 
+#extracting services
 def extractServicesData(serviceType, logger):
     try:
         data = pd.read_csv(serviceDict[serviceType], sep='\t')
