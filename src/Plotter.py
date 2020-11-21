@@ -24,7 +24,6 @@ def plotNominalData(x,y, x2, y2, logger):
     
     plt.plot(x,y, label = 'Commodities')
     
-    print(x2)
     if x2 and y2 != None:
         plt.plot(x2,y2, label = "Services")
     
