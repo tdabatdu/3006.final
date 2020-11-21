@@ -15,7 +15,7 @@ def plotFlatData(x,y,x2, y2, logger):
         
     plt.xlabel('Year')
     plt.ylabel('Index Value')
-    plt.title('Index Value Over Time')
+    plt.title('Producer Price Index Value Over Time')
     plt.legend()
     plt.show()
     return None
@@ -30,7 +30,7 @@ def plotNominalData(x,y, x2, y2, logger):
     
     plt.xlabel('Year')
     plt.ylabel('Difference in Index Value')
-    plt.title('Difference in Index Value Over Time')
+    plt.title('Difference in Producer Price Index Value Over Time')
     plt.legend()
     plt.show()
     
@@ -46,7 +46,7 @@ def plotPercentageData(x,y,x2, y2, logger):
     
     plt.xlabel('Year')
     plt.ylabel('Percentage Change in Index Value')
-    plt.title('Percentage Change in Index Value Over Time')
+    plt.title('Percentage Change in Producer Price Index Value Over Time')
     plt.legend()
     plt.show()
     
