@@ -38,10 +38,23 @@ class Test(unittest.TestCase):
     
     
     def testCreateNominalData(self):
-        pass
+        x,y = ph.createNomialData(self.commodities, logger)
+        
+        self.assertEqual((1920,1921,1922,1923,1924,1925), x)
+        self.assertEqual((0.0,1.0,19.0,10.0,10.0,1.0),y)
+        
     
     def testCreatePercentageData(self):
-        pass
+        x,y = ph.createPercentageData(self.commodities, logger)
+        
+        self.assertEqual((1920,1921,1922,1923,1924,1925), x)
+
+        
+        assertionPlaceholder = (1.000, 1.0100, 1.1881188, 1.083333333, 1.0769230, 1.00714285)
+        i = 0 
+        for number in assertionPlaceholder:
+            self.assertAlmostEqual(number, y[i], 2)
+            i += 1
 
 
 if __name__ == "__main__":

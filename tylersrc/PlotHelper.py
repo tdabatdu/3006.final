@@ -40,13 +40,15 @@ def createNomialData(commodities, logger):
         
     earliestYear = min(tempDict.keys())
     lastYear = copy.deepcopy(mean(tempDict[earliestYear]))
-    print('earliet Year', lastYear, earliestYear)
+    #print('earliet Year', lastYear, earliestYear)
 
     
     for key in sortedDict:
         thisYear = mean(sortedDict[key])
         sortedDict[key] = thisYear - lastYear
-        print(thisYear, lastYear, key)
+
+
+        logger.debug(thisYear, lastYear, key)
         
         lastYear = thisYear
 
@@ -71,8 +73,14 @@ def createPercentageData(commodities, logger):
     
     for key in sortedDict:
         thisYear = mean(sortedDict[key])
-        sortedDict[key] = thisYear / lastYear
-        print(thisYear, lastYear, key)
+        
+        if thisYear < lastYear:
+            sortedDict[key] = -thisYear / lastYear
+        
+        else:
+            sortedDict[key] = thisYear / lastYear
+
+        logger.debug(thisYear, lastYear, key)
         
         lastYear = thisYear
 
