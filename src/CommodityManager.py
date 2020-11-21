@@ -6,6 +6,7 @@ Tyler Dabat COMP 3006 Final
 import logging
 import DataExtractor as de
 import CommodityIndex as ci
+import ServicesIndex as si
 import PlotHelper as ph
 import Plotter as ptr
 import Printer as pnr
@@ -28,16 +29,41 @@ def createCommodities(commodity, logger):
     logger.debug('Commodities created')
     return commodities
 
+#creating services
+def createServices(service, logger):
+    #extract services from source
+    
+    servicesData = de.extractServicesData(service, logger)
+    services = si.Services(logger)
+    
+    logger.debug('Creating Services')
+    
+    #instantiating Services
+    for row in servicesData.itertuples():
+        services.addNewService(row.series_id, service, row.year, row.period, row.value, logger)
+        
+    logger.debug('Services Created')
+    
+    
+    return services
+
 
 #evaluate and display plot
-def displayPlot(commodities, plotType, logger):
+def displayPlot(commodities, services, plotType, logger):
     
     #flat plot type execution
     if plotType == 'flat':
         logger.debug('flat chosen')
         
         x,y = ph.createFlatData(commodities, logger)
-        ptr.plotFlatData(x,y, logger)
+        
+        # add conditions to handle Null values
+        x2 = None
+        y2 = None
+        if services != None:
+            x2,y2 = ph.createFlatData(services, logger)
+        
+        ptr.plotFlatData(x,y,x2,y2, logger)
         logger.debug('flat plotter invoked')
         
         
@@ -46,7 +72,15 @@ def displayPlot(commodities, plotType, logger):
         logger.debug('nomchge chosen')
         
         x,y = ph.createNomialData(commodities, logger)
-        ptr.plotNominalData(x,y, logger)
+        
+        x2 = None
+        y2 = None
+
+        
+        if services != None:
+            x2,y2 = ph.createNomialData(services, logger)
+            
+        ptr.plotNominalData(x,y,x2,y2, logger)
         logger.debug('Nominal plotter invoked')
         
     #percentage plot type execution
@@ -54,7 +88,14 @@ def displayPlot(commodities, plotType, logger):
         logger.debug('perchge')
         
         x,y = ph.createPercentageData(commodities, logger)
-        ptr.plotPercentageData(x,y, logger)
+        
+        x2 = None
+        y2 = None
+        
+        if services != None:
+            x2,y2 = ph.createPercentageData(services, logger)
+        
+        ptr.plotPercentageData(x,y,x2,y2, logger)
         
         logger.debug('Percentage plotter invoked')
         
@@ -71,13 +112,25 @@ def displayPlot(commodities, plotType, logger):
     return x,y
         
 #Processing all flows from main  (Also, numpy is used here
-def processCommodities(commodity, plot, outputType, logger):
+def processCommodities(commodity, plot, outputType, grouping,  logger):
     #Creating commodities
     commodities = createCommodities(commodity, logger)
     logger.info(commodity + ' Obtained')
     
+    
+    services = None
+    
+    #creating services
+    if grouping == True:
+        services = createServices(commodity, logger)
+        logger.info('Service: ' + commodity + 'Obtained')
+    
+        
+    
+    
+    
     #displaying Plots
-    x,y = displayPlot(commodities, plot, logger)
+    x,y = displayPlot(commodities, services, plot, logger)
     logger.debug(plot + ' attempted')
     
     #Numpy used here!!-------------------------------------------------------------

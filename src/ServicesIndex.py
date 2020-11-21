@@ -33,10 +33,10 @@ class Services():
         logger.debug('Services container made')
 
 
-    def _getServices(self, logger):
+    def _getCollection(self, logger):
 
         logger.debug('services requested')
-        return self.commodities
+        return self.services
 
     def generateServices(self):
 

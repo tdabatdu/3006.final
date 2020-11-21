@@ -11,11 +11,11 @@ from collections import defaultdict, OrderedDict
 from statistics import mean
 
 #prepping flat data for plotting
-def createFlatData(commodities, logger):
+def createFlatData(dataSet, logger):
     tempDict = defaultdict(lambda: [])
     
-    for commodity in commodities._getCommodities(logger):
-        tempDict[commodity.year].append(commodity.indexValue)
+    for row in dataSet._getCollection(logger):
+        tempDict[row.year].append(row.indexValue)
         
     
     for key in tempDict:
@@ -31,11 +31,11 @@ def createFlatData(commodities, logger):
     
 
 
-def createNomialData(commodities, logger):
+def createNomialData(dataSet, logger):
     tempDict = defaultdict(lambda: [])
     
-    for commodity in commodities._getCommodities(logger):
-        tempDict[commodity.year].append(commodity.indexValue)
+    for row in dataSet._getCollection(logger):
+        tempDict[row.year].append(row.indexValue)
     
     #pre-sorting so loop works chronologically
     sortedDict = OrderedDict(sorted(tempDict.items()))
@@ -62,11 +62,11 @@ def createNomialData(commodities, logger):
     return x,y
 
 
-def createPercentageData(commodities, logger):
+def createPercentageData(dataSet, logger):
     tempDict = defaultdict(lambda: [])
     
-    for commodity in commodities._getCommodities(logger):
-        tempDict[commodity.year].append(commodity.indexValue)
+    for row in dataSet._getCollection(logger):
+        tempDict[row.year].append(row.indexValue)
         
     #pre-sorting so loop works chronologically
     sortedDict = OrderedDict(sorted(tempDict.items()))

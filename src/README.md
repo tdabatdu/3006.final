@@ -1,2 +1,4 @@
 # 3006.final
-Final for 3006
+Tyler Dabat and Travis Hammond's submission for the 3006 final project.  
+
+

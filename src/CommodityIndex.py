@@ -39,7 +39,7 @@ class Commodities():
         logger.debug('Commodites container made')
         
         
-    def _getCommodities(self, logger):
+    def _getCollection(self, logger):
         logger.debug('commodities requested')
         return self.commodities
     

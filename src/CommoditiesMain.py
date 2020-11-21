@@ -22,10 +22,13 @@ def main(logger):
     parser.add_argument('-c', '--commodity', dest = 'commodity', action = 'store', metavar = '<commodity>', choices = ['all', 'pulp', 'metals', 'minerals', 'transportation', 'processedFoods', 'textile', 'leather', 'fuels', 'chemicals', 'rubber', 'lumber'])
     parser.add_argument('-p', '--plot', dest = 'plot', action = 'store', metavar = '<plotchoice>', choices = ['flat', 'nomchge', 'perchge' ], help = 'flat: average index year over year, nomchge: nominal change in the current year vs the previous, perchge: percentage change year over year')
     parser.add_argument('-o', '--output', dest = 'out', action = 'store', choices = ['print', 'sys'], help = 'To either print or pipe through sys')
+    parser.add_argument('-g', '--grouping', dest = 'grouping', action = 'store_true', help = 'The presence of this will add services to the plot')
     args = parser.parse_args()
     
+
     
-    execute(args.commodity, args.plot, args.out, logger)
+    
+    execute(args.commodity, args.plot, args.out, args.grouping, logger)
     logger.debug('Execution Context: ' + str(args.commodity) + str(args.plot) + str(args.out))
     
 
@@ -36,9 +39,9 @@ def main(logger):
 
 
 #executing flow
-def execute(commodity, plot, output, logger):
+def execute(commodity, plot, output, grouping, logger):
     
-    cm.processCommodities(commodity, plot, output, logger)
+    cm.processCommodities(commodity, plot, output, grouping, logger)
     
     return None
     
