@@ -40,13 +40,8 @@ class Commodities():
         
         
     def _getCommodities(self, logger):
-        
         logger.debug('commodities requested')
         return self.commodities
-    
-    def generateCommodities(self):
-        
-        return 'Nothing this is where I need to get commodities'
     
     def addNewCommodity(self, series, commodity, year, month, indexValue, logger):
         newCommodity = CommodityIndex(series, commodity, year, month, indexValue, logger)

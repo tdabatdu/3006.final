@@ -10,7 +10,7 @@ import copy
 from collections import defaultdict, OrderedDict
 from statistics import mean
 
-
+#prepping flat data for plotting
 def createFlatData(commodities, logger):
     tempDict = defaultdict(lambda: [])
     
@@ -20,7 +20,8 @@ def createFlatData(commodities, logger):
     
     for key in tempDict:
         tempDict[key] = mean(tempDict[key])
-        
+      
+      #sorting dict  
     indexList = sorted(tempDict.items())
     x,y = zip(*indexList)  
      
@@ -36,13 +37,15 @@ def createNomialData(commodities, logger):
     for commodity in commodities._getCommodities(logger):
         tempDict[commodity.year].append(commodity.indexValue)
     
+    #pre-sorting so loop works chronologically
     sortedDict = OrderedDict(sorted(tempDict.items()))
         
+    #setting value for first year
     earliestYear = min(tempDict.keys())
     lastYear = copy.deepcopy(mean(tempDict[earliestYear]))
     #print('earliet Year', lastYear, earliestYear)
 
-    
+    #calculating difference
     for key in sortedDict:
         thisYear = mean(sortedDict[key])
         sortedDict[key] = thisYear - lastYear
@@ -65,17 +68,19 @@ def createPercentageData(commodities, logger):
     for commodity in commodities._getCommodities(logger):
         tempDict[commodity.year].append(commodity.indexValue)
         
+    #pre-sorting so loop works chronologically
     sortedDict = OrderedDict(sorted(tempDict.items()))
     
+    #setting value for first year
     earliestYear = min(tempDict.keys())
     lastYear = copy.deepcopy(mean(tempDict[earliestYear]))
     
-    
+    #calculating percentage change
     for key in sortedDict:
         thisYear = mean(sortedDict[key])
         
         if thisYear < lastYear:
-            sortedDict[key] = -thisYear / lastYear
+            sortedDict[key] = -lastYear / thisYear
         
         else:
             sortedDict[key] = thisYear / lastYear

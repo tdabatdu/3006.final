@@ -1,7 +1,6 @@
 '''
-Created on Nov 18, 2020
+Tyler Dabat COMP 3006 Final
 
-@author: Master Blaster
 '''
 import unittest
 import logging

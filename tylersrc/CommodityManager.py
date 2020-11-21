@@ -49,7 +49,7 @@ def displayPlot(commodities, plotType, logger):
         ptr.plotNominalData(x,y, logger)
         logger.debug('Nominal plotter invoked')
         
-    #nominal plot type execution
+    #percentage plot type execution
     elif plotType == 'perchge':
         logger.debug('perchge')
         
@@ -70,32 +70,6 @@ def displayPlot(commodities, plotType, logger):
     
     return x,y
         
-    
-    ''' Probably need to delete this
-#printing the plot
-def printPlot(output, outputType, logger):
-    
-    if outputType == 'print':
-        logger.debug('Printing output')
-        
-        pnr.printOutput(output, outputType, logger)
-        
-        logger.debug('printing ouput invoked')
-        
-    elif outputType == 'sys':
-        logger.debug('sys stdout chosen')
-        
-        pnr.printOutput(output, outputType, logger)
-        
-    elif outputType == None:
-        logger.debug('No outputType chosen')
-        logger.info('No output chosen')
-        
-    else:
-        logger.error('Problem with outputType processing')
-
-
-'''
 #Processing all flows from main  (Also, numpy is used here
 def processCommodities(commodity, plot, outputType, logger):
     #Creating commodities
