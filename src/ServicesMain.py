@@ -1,6 +1,6 @@
 '''
-Technical Lead: Tyler Dabat
-Contributor: Travis Hammond
+Technical Lead:  Travis Hammond
+Contributor: Tyler Dabat
 COMP 3006 Final
 '''
 
@@ -23,7 +23,13 @@ def main(logger):
     parser.add_argument('-s', '--service', dest = 'service', action = 'store', metavar = '<service>', choices = ['all', 'pulp', 'metals', 'minerals', 'transportation', 'farmProducts', 'processedFoods', 'textile', 'leather', 'fuels', 'chemicals', 'rubber', 'lumber'])
     parser.add_argument('-p', '--plot', dest = 'plot', action = 'store', metavar = '<plotchoice>', choices = ['flat', 'nomchge', 'perchge' ], help = 'flat: average index year over year, nomchge: nominal change in the current year vs the previous, perchge: percentage change year over year')
     parser.add_argument('-o', '--output', dest = 'out', action = 'store', choices = ['print', 'sys'], help = 'To either print or pipe through sys')
+	parser.add_argument('-g', '--grouping', dest = 'grouping', action = 'store_true', help = 'The presence of this will add services to the plot')
     args = parser.parse_args()
+	
+	if args.service == None:
+        print('Service is required, please try again.')
+        
+        raise SystemError
 
 
     execute(args.service, args.plot, args.out, logger)
