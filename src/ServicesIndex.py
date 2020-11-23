@@ -24,7 +24,7 @@ class ServiceIndex():
 
 
 
-#container for commodities
+#container for services
 class Services():
 
     def __init__(self, logger):
