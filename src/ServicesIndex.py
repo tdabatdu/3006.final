@@ -1,6 +1,6 @@
 '''
-Technical Lead: Tyler Dabat
-Contributor: Travis Hammond
+Technical Lead:  Travis Hammond 
+Contributor: Tyler Dabat
 COMP 3006 Final
 '''
 import logging
@@ -24,7 +24,7 @@ class ServiceIndex():
 
 
 
-#container for services
+#container for commodities
 class Services():
 
     def __init__(self, logger):
@@ -33,7 +33,7 @@ class Services():
         logger.debug('Services container made')
 
 
-    def _getCollection(self, logger):
+    def _getServices(self, logger):
 
         logger.debug('services requested')
         return self.services
